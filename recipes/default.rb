@@ -97,8 +97,9 @@ directory node[:kafka][:data_dir] do
   action :create
 end
 
+#http://mirrors.rackhosting.com/apache/incubator/kafka/kafka-0.7.2-incubating/kafka-0.7.2-incubating-src.tgz
 # pull the remote file only if we create the directory
-tarball = "kafka-#{node[:kafka][:version]}.tar.gz"
+tarball = "kafka-#{node[:kafka][:version]}-incubating-src.tgz"
 download_file = "#{node[:kafka][:download_url]}/#{tarball}"
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{tarball}" do
